@@ -36,7 +36,7 @@ Route::get('/paiement', function () {
 
 //// authentification ///
 // Route::get('dashboard', [CustomAuthController::class, 'dashboard']); 
-Route::get('/login', [CustomAuthController::class, 'index'])->name('login');
+Route::get('', [CustomAuthController::class, 'index'])->name('login');
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom'); 
 Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
 Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom'); 
@@ -62,14 +62,15 @@ Route::post('upload', [ImageUploadController::class, 'upload']);
 
 //**file */
 
-Route::get('admin', [FileController::class, 'show']); 
-Route::post('admin/create', [FileController::class, 'create']);
-Route::get('admin/edit', [FileController::class, 'edit']);
-Route::post('admin/update/{id}', [FileController::class, 'update']);
+Route::get('admin', [FileController::class, 'show'])->middleware('auth');
+
+Route::post('admin/create', [FileController::class, 'create'])->middleware('auth');
+Route::get('admin/edit', [FileController::class, 'edit'])->middleware('auth');
+Route::post('admin/update/{id}', [FileController::class, 'update'])->middleware('auth');
 
 
 /** affichage des données  */
-Route::get('home', [FileController::class, 'index']); 
+Route::get('home', [FileController::class, 'index'])->middleware('auth');; 
 
 
 /**contact route */
