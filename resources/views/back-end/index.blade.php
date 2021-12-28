@@ -19,6 +19,8 @@
 	<link href="back-office/css/app.css" rel="stylesheet">
     <link rel="stylesheet" href="css/font-awesome.min.css">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
 
 <body>
@@ -26,7 +28,7 @@
 		<nav id="sidebar" class="sidebar js-sidebar">
 			<div class="sidebar-content js-simplebar">
 				<a class="sidebar-brand" href="index.html">
-          <span class="align-middle">VOYANEO <i class="fa fa-map-marker fa-2x" aria-hidden="true" style="color:#09C6AB "></i></span>
+          <span class="align-middle"><strong>VOYANEO</strong> <i class="fas fa-map-marker-alt fa-2x" style="color: aqua"></i></span>
         </a>
 
 				<ul class="sidebar-nav">
@@ -35,55 +37,38 @@
 					</li>
 
 					<li class="sidebar-item active">
-						<a class="sidebar-link" href="index.html">
-              <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
+						<a class="sidebar-link" href="http://127.0.0.1:8000/admin">
+							<i class="align-middle" data-feather="map"></i>  <span class="align-middle">Offre</span>
             </a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-profile.html">
-              <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
+						<a class="sidebar-link" href="product">
+							<i class="fas fa-shopping-cart"></i> <span class="align-middle">Commande</span>
             </a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-sign-in.html">
-              <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Sign In</span>
+						<a class="sidebar-link" href="http://127.0.0.1:8000/avis/show">
+							<i class="fas fa-star"></i> <span class="align-middle">Avis</span>
             </a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-sign-up.html">
-              <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Sign Up</span>
+						<a class="sidebar-link" href="http://127.0.0.1:8000/contact-show">
+							<i class="fas fa-comments"></i> <span class="align-middle">Contact</span>
             </a>
 					</li>
-
+						
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-blank.html">
-              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Blank</span>
+						<a class="sidebar-link" href="http://127.0.0.1:8000/client-show">
+							<i class="fas fa-user"></i> <span class="align-middle">client</span>
             </a>
 					</li>
 
-					<li class="sidebar-header">
+
+					{{-- <li class="sidebar-header">
 						Tools & Components
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-buttons.html">
-              <i class="align-middle" data-feather="square"></i> <span class="align-middle">Buttons</span>
-            </a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-forms.html">
-              <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Forms</span>
-            </a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-cards.html">
-              <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Cards</span>
-            </a>
 					</li>
 
 					<li class="sidebar-item">
@@ -96,36 +81,25 @@
 						<a class="sidebar-link" href="icons-feather.html">
               <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Icons</span>
             </a>
-					</li>
+					</li> --}}
 
-					<li class="sidebar-header">
-						Plugins & Addons
+					{{-- <li class="sidebar-header">
+						Compte & Profile
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="charts-chartjs.html">
-              <i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">Charts</span>
+						<a class="sidebar-link" href="pages-sign-in.html">
+              <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Sign In</span>
             </a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="maps-google.html">
-              <i class="align-middle" data-feather="map"></i> <span class="align-middle">Maps</span>
+						<a class="sidebar-link" href="{{ url('signout') }}">
+              <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Sign Up</span>
             </a>
-					</li>
-				</ul>
+					</li> --}}
 
-				<div class="sidebar-cta">
-					<div class="sidebar-cta-content">
-						<strong class="d-inline-block mb-2">Upgrade to Pro</strong>
-						<div class="mb-3 text-sm">
-							Are you looking for more components? Check out our premium version.
-						</div>
-						<div class="d-grid">
-							<a href="upgrade-to-pro.html" class="btn btn-primary">Upgrade to Pro</a>
-						</div>
-					</div>
-				</div>
+				
 			</div>
 		</nav>
 
@@ -139,131 +113,21 @@
 					<ul class="navbar-nav navbar-align">
 						<li class="nav-item dropdown">
 							<a class="nav-icon dropdown-toggle" href="#" id="alertsDropdown" data-bs-toggle="dropdown">
-								<div class="position-relative">
-									<i class="align-middle" data-feather="bell"></i>
-									<span class="indicator">4</span>
-								</div>
+								
 							</a>
 							<div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0" aria-labelledby="alertsDropdown">
-								<div class="dropdown-menu-header">
-									4 New Notifications
-								</div>
-								<div class="list-group">
-									<a href="#" class="list-group-item">
-										<div class="row g-0 align-items-center">
-											<div class="col-2">
-												<i class="text-danger" data-feather="alert-circle"></i>
-											</div>
-											<div class="col-10">
-												<div class="text-dark">Update completed</div>
-												<div class="text-muted small mt-1">Restart server 12 to complete the update.</div>
-												<div class="text-muted small mt-1">30m ago</div>
-											</div>
-										</div>
-									</a>
-									<a href="#" class="list-group-item">
-										<div class="row g-0 align-items-center">
-											<div class="col-2">
-												<i class="text-warning" data-feather="bell"></i>
-											</div>
-											<div class="col-10">
-												<div class="text-dark">Lorem ipsum</div>
-												<div class="text-muted small mt-1">Aliquam ex eros, imperdiet vulputate hendrerit et.</div>
-												<div class="text-muted small mt-1">2h ago</div>
-											</div>
-										</div>
-									</a>
-									<a href="#" class="list-group-item">
-										<div class="row g-0 align-items-center">
-											<div class="col-2">
-												<i class="text-primary" data-feather="home"></i>
-											</div>
-											<div class="col-10">
-												<div class="text-dark">Login from 192.186.1.8</div>
-												<div class="text-muted small mt-1">5h ago</div>
-											</div>
-										</div>
-									</a>
-									<a href="#" class="list-group-item">
-										<div class="row g-0 align-items-center">
-											<div class="col-2">
-												<i class="text-success" data-feather="user-plus"></i>
-											</div>
-											<div class="col-10">
-												<div class="text-dark">New connection</div>
-												<div class="text-muted small mt-1">Christina accepted your request.</div>
-												<div class="text-muted small mt-1">14h ago</div>
-											</div>
-										</div>
-									</a>
-								</div>
-								<div class="dropdown-menu-footer">
-									<a href="#" class="text-muted">Show all notifications</a>
-								</div>
+								
+								
+							
 							</div>
 						</li>
 						<li class="nav-item dropdown">
-							<a class="nav-icon dropdown-toggle" href="#" id="messagesDropdown" data-bs-toggle="dropdown">
-								<div class="position-relative">
-									<i class="align-middle" data-feather="message-square"></i>
-								</div>
-							</a>
+							
 							<div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0" aria-labelledby="messagesDropdown">
 								<div class="dropdown-menu-header">
-									<div class="position-relative">
-										4 New Messages
-									</div>
+									
 								</div>
-								<div class="list-group">
-									<a href="#" class="list-group-item">
-										<div class="row g-0 align-items-center">
-											<div class="col-2">
-												<img src="back-office/img/avatars/avatar-5.jpg" class="avatar img-fluid rounded-circle" alt="Vanessa Tucker">
-											</div>
-											<div class="col-10 ps-2">
-												<div class="text-dark">Vanessa Tucker</div>
-												<div class="text-muted small mt-1">Nam pretium turpis et arcu. Duis arcu tortor.</div>
-												<div class="text-muted small mt-1">15m ago</div>
-											</div>
-										</div>
-									</a>
-									<a href="#" class="list-group-item">
-										<div class="row g-0 align-items-center">
-											<div class="col-2">
-												<img src="back-office/img/avatars/avatar-2.jpg" class="avatar img-fluid rounded-circle" alt="William Harris">
-											</div>
-											<div class="col-10 ps-2">
-												<div class="text-dark">William Harris</div>
-												<div class="text-muted small mt-1">Curabitur ligula sapien euismod vitae.</div>
-												<div class="text-muted small mt-1">2h ago</div>
-											</div>
-										</div>
-									</a>
-									<a href="#" class="list-group-item">
-										<div class="row g-0 align-items-center">
-											<div class="col-2">
-												<img src="back-office/img/avatars/avatar-4.jpg" class="avatar img-fluid rounded-circle" alt="Christina Mason">
-											</div>
-											<div class="col-10 ps-2">
-												<div class="text-dark">Christina Mason</div>
-												<div class="text-muted small mt-1">Pellentesque auctor neque nec urna.</div>
-												<div class="text-muted small mt-1">4h ago</div>
-											</div>
-										</div>
-									</a>
-									<a href="#" class="list-group-item">
-										<div class="row g-0 align-items-center">
-											<div class="col-2">
-												<img src="back-office/img/avatars/avatar-3.jpg" class="avatar img-fluid rounded-circle" alt="Sharon Lessman">
-											</div>
-											<div class="col-10 ps-2">
-												<div class="text-dark">Sharon Lessman</div>
-												<div class="text-muted small mt-1">Aenean tellus metus, bibendum sed, posuere ac, mattis non.</div>
-												<div class="text-muted small mt-1">5h ago</div>
-											</div>
-										</div>
-									</a>
-								</div>
+								
 								<div class="dropdown-menu-footer">
 									<a href="#" class="text-muted">Show all messages</a>
 								</div>
@@ -275,24 +139,194 @@
               </a>
 
 							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-                <img src="back-office/img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">Charles Hall</span>
+								<i class="fas fa-user-tie fa-2x"></i> <span class="text-dark font-weight-bold">{{Auth::user()->name}}</span>
               </a>
 							<div class="dropdown-menu dropdown-menu-end">
-								<a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
+								{{-- <a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
 								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="pie-chart"></i> Analytics</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="index.html"><i class="align-middle me-1" data-feather="settings"></i> Settings & Privacy</a>
 								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Help Center</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">Log out</a>
+								<div class="dropdown-divider"></div> --}}
+								<a class="dropdown-item" href="{{ url('signout') }}">Log out</a>
 							</div>
 						</li>
 					</ul>
 				</div>
 			</nav>
+  <!-- start form -->
+			<main class="content">
+				<div class="container-fluid p-0" id="product">
+                   <!-- message success -->
+				   @if (count($errors) > 0)
+				   <div class="alert alert-danger">
+					   <strong>Sorry!</strong> There were more problems with your HTML input.<br><br>
+					   <ul>
+						 @foreach ($errors->all() as $error)
+							 <li>{{ $error }}</li>
+						 @endforeach
+					   </ul>
+				   </div>
+				   @endif
+					 
+				   @if(session('success'))
+				   <div class="alert alert-success">
+					 {{ session('success') }}
+				   </div> 
+				   @endif
+				   <!-- end message -->
+					<h1 class="h3 mb-3">Welcome Admin <i class="far fa-grin-alt"></i> <strong style="color: rgb(62, 186, 207)"> {{Auth::user()->name}}</strong></h1>
+                     <hr >
+					<form method="POST" action="{{url('admin/create')}}" enctype="multipart/form-data" class="mt-5">
+						@csrf
+						
+						<div class="container">
+							<div class="row">
+								<div class="col-lg-6 mb-2">
+									<div class="input-group hdtuto control-group lst increment" >
+										<input type="file" name="filenames1" class="myfrm form-control">
+										{{-- <div class="input-group-btn"> 
+										  <button class="btn btn-add btn-success" type="button"><i class="fas fa-layer-plus"></i> Add</button>
+										</div> --}}
+									  </div>
+								</div>
+								<div class="col-lg-6">
+									<div class="input-group hdtuto control-group lst increment" >
+										<input type="file" name="filenames2" class="myfrm form-control">
+										{{-- <div class="input-group-btn"> 
+										  <button class="btn btn-add btn-success" type="button"><i class="fas fa-layer-plus"></i> Add</button>
+										</div> --}}
+									  </div>
+								</div>
+								<div class="col-lg-6">
+									<div class="input-group hdtuto control-group lst increment" >
+										<input type="file" name="filenames3" class="myfrm form-control">
+										{{-- <div class="input-group-btn"> 
+										  <button class="btn btn-add btn-success" type="button"><i class="fas fa-layer-plus"></i> Add</button>
+										</div> --}}
+									  </div>
+								</div>
+								<div class="col-lg-6 mb-2">
+									<div class="input-group hdtuto control-group lst increment" >
+										<input type="file" name="filenames4" class="myfrm form-control">
+										{{-- <div class="input-group-btn"> 
+										  <button class="btn btn-add btn-success" type="button"><i class="fas fa-layer-plus"></i> Add</button>
+										</div> --}}
+									  </div>
+								</div>
+								<div class="col-lg-6">
+									<div class="input-group hdtuto control-group lst increment" >
+										<input type="file" name="filenames5" class="myfrm form-control">
+										{{-- <div class="input-group-btn"> 
+										  <button class="btn btn-add btn-success" type="button"><i class="fas fa-layer-plus"></i> Add</button>
+										</div> --}}
+									  </div>
+								</div>
+								<div class="col-lg-6">
+									<div class="input-group hdtuto control-group lst increment" >
+										<input type="file" name="filenames6" class="myfrm form-control">
+										  {{-- <div class="input-group-btn"> 
+											<button class="btn btn_delete btn-danger" type="button"><i class="far fa-trash-alt"></i> Remove</button>
+										  </div> --}}
+										</div>
+									  </div>
+								</div>
+							</div>
+						</div>
+						
+						  
+						<!--start row -->
+						<div class="container">
+									
+							<div class="row bg-light">
+						<div class="col-lg-6">
+							<div class="form-group">
+								<label>Titre </label>
+								<input type="text" class="form-control" name="titre" id="titre" value="">
+							</div>
+						 </div>
+					
+						 <div class="col-lg-6">
+							<div class="form-group">
+								<label>Sous Titre </label>
+								<input type="text" class="form-control" name="sous_titre" id="sous_titre" value="">
+							</div>
+						 </div>
+					
+						 <div class="col-lg-6">
+							<div class="form-group">
+								<label>Description </label>
+								<textarea class="form-control" name="desc_1" id="desc_1" rows="4" value=""></textarea>
+							</div>
+						 </div>
+					
+						 <div class="col-lg-6">
+							<div class="form-group">
+								<label>Description 2 </label>
+								<textarea class="form-control" name="desc_2" id="desc_2" rows="4" value=""></textarea>
+							</div>
+						 </div>
+						 
+					
+						 <div class="col-lg-12">
+							<div class="form-group">
+								<label>Video youtube</label>
+								<input type="text" class="form-control" name="video" id="video" value=""  action="" placeholder="https://www.youtube-nocookie.com/embed/fEESYqItI">
+								
+							</div>
+						 </div>
+					
+						 <div class="col-lg-6">
+							<div class="form-group">
+								<label>Prix</label>
+								<input type="text" class="form-control" name="prix" id="prix" value="">
+							</div>
+						 </div>
+						 <div class="col-lg-6">
+							<div class="form-group">
+								<label>Nombre personnes</label>
+								<input type="text" class="form-control" name="nbr_perso" id="nbr_perso" value="">
+							</div>
+						 </div>
+						 <div class="col-lg-6">
+							<div class="form-group">
+								<label>Airport</label>
+								<input type="text" class="form-control" name="airport" id="airport" value="" placeholder="Paris..">
+								{{-- <select class="browser-default custom-select" id="list" >
+                                                    
+									<option value="paris" selected>PARIS</option>
+									<option value="bordeaux">BORDEAUX</option>
+									<option value="lille">LILLE</option>
+									<option value="nante">NANTE</option>
+									<option value="toulouse">TOULOUSE</option>
+									<option value="marseille">MARSEILLE</option>
+									<option value="nice">NICE</option>
+								
+								  </select>  --}}
+							</div>
+						 </div>
+						 <div class="col-lg-6">
+							<div class="form-group">
+								<label>date_depart</label>
+								<input type="date" class="form-control" name="date_depart" id="date_depart" value="">
+							</div>
+						 </div>
+					
+					    
+						<div class="col-12 text-center">
+							<button type="submit" class="btn btn-success " style="margin-top:20px;width:200px"><i class="fas fa-plus-circle"></i> Ajouter</button>
+							<a type="button" href="http://127.0.0.1:8000/home" class="btn btn-primary " style="margin-top:20px;width:200px;color: white" target="blank"><i class="far fa-eye" style="color: white"></i> Voir le produit </a>
+							<a type="button" href="http://127.0.0.1:8000/admin/edit" class="btn btn-warning " style="margin-top:20px;width:200px;color: white" target="blank"><i class="fas fa-edit" style="color: white"></i> Modifier  </a>
+						</div>
+						<!-- end row -->
+							</div>
+						</div>
+					
+					</form> 
 
-			
-
+				</div>
+			</main>
+<!--  end form -->
 			{{-- <footer class="footer fixed-bottom">
 				<div class="container-fluid">
 					<div class="row text-muted">
@@ -324,7 +358,17 @@
 	</div>
 
 	<script src="back-office/js/app.js"></script>
-
+	{{-- <script >
+		$(document).ready(function() {
+		  $(".btn-add").click(function(){ 
+			  var lsthmtl = $(".clone").html();
+			  $(".increment").after(lsthmtl);
+		  });
+		  $("body").on("click",".btn_delete",function(){ 
+			  $(this).parents(".hdtuto").remove();
+		  });
+		});
+	</script> --}}
 	
 
 </body>

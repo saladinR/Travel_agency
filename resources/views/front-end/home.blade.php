@@ -17,6 +17,7 @@
     <title>VOYANEO</title>
     <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
         <!--
         CSS
         ============================================= -->
@@ -41,7 +42,7 @@
               <div class="collapse navbar-collapse " id="navbarText">
                 <ul class="navbar-nav ml-auto mb-2 ">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#"><i class="fa fa-heart fa-2x" aria-hidden="true"></i> FAVORIS</a>
+                    <a class="nav-link active" aria-current="page" href="http://127.0.0.1:8000/home"><i class="fa fa-home fa-2x" aria-hidden="true"></i> HOME</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link active" href="#"><i class="fa fa-suitcase fa-2x" aria-hidden="true"></i> COMMANDE</a>
@@ -52,13 +53,17 @@
                   <li class="nav-item">
                     <div class="dropdown">
                         <button class="btn btnnav dropdown-toggle mt-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fa fa-user-circle fa-4x" aria-hidden="true"></i> COMPTE
+                            <i class="fa fa-user-circle fa-4x" aria-hidden="true"></i> {{Auth::user()->name}}
                         </button>
+                        @if (isset(Auth::user()->email))
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" href="#">Action</a>
-                          <a class="dropdown-item" href="#">Another action</a>
-                          <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
+                         <a class="dropdown-item bg-light" >{{Auth::user()->email}}</a>
+                            <a class="dropdown-item bg-light"> code : <input type="text" value="{{Auth::user()->cle_par}}"  id="code_par" disabled></a>
+                            <a class="dropdown-item" href="#">Modifier mon compte</a>
+                            <a class="dropdown-item" href="{{ url('signout') }}">Déconnecter</a>
+                          </div> 
+                        @endif
+                       
                       </div>
                   </li>
                 </ul>
@@ -77,10 +82,10 @@
                 				
                 <div class="row justify-content-center">
                     <div class="col-lg-12 active-hot-deal-carusel ">
+                        @foreach ($offre as $item)
                         <div class="single-carusel">
                             <div class="thumb relative">
-                              
-                                <img class="img-fluid" src="img/room-6.jpg" alt="">
+                                <img class="img-fluid" src="data_app/image/{{ $item->filenames1 }}" alt="">
                             </div>
                             <div class="price-detials">
                                <div class="row">
@@ -94,7 +99,7 @@
                         <div class="single-carusel">
                             <div class="thumb relative">
                                 
-                                <img class="img-fluid" src="img/prod-1.jpg" alt="" >
+                                <img class="img-fluid" src="data_app/image/{{ $item->filenames2 }}" alt="" >
                             </div>
                             <div class="price-detials">
                                 <div class="row">
@@ -107,7 +112,7 @@
                         <div class="single-carusel">
                             <div class="thumb relative">
                                 
-                                <img class="img-fluid" src="img/prod-2.jpg" alt="">
+                                <img class="img-fluid" src="data_app/image/{{ $item->filenames3 }}" alt="">
                             </div>
                             <div class="price-detials">
                                 <div class="row">
@@ -117,10 +122,55 @@
                                 
                             </div>
                             </div> 
+                            <div class="single-carusel">
+                                <div class="thumb relative">
+                                    
+                                    <img class="img-fluid" src="data_app/image/{{ $item->filenames4 }}" alt="">
+                                </div>
+                                <div class="price-detials">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-sm-6 mb-5 hovo"><a href="#" class="price-btn"><span><i class="fa fa-heart" aria-hidden="true"></i></span></a></div>
+                                        <div class="col-lg-6 col-sm-6 hovo"> <a href="#" class="price-btn"><span><i class="fa fa-share-alt-square" aria-hidden="true"></i></span></a></div>
+                                       </div>
+                                    
+                                </div>
+                                </div> 
+                                <div class="single-carusel">
+                                    <div class="thumb relative">
+                                        
+                                        <img class="img-fluid" src="data_app/image/{{ $item->filenames5 }}" alt="">
+                                    </div>
+                                    <div class="price-detials">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-sm-6 mb-5 hovo"><a href="#" class="price-btn"><span><i class="fa fa-heart" aria-hidden="true"></i></span></a></div>
+                                            <div class="col-lg-6 col-sm-6 hovo"> <a href="#" class="price-btn"><span><i class="fa fa-share-alt-square" aria-hidden="true"></i></span></a></div>
+                                           </div>
+                                        
+                                    </div>
+                                    </div> 
+                                    <div class="single-carusel">
+                                        <div class="thumb relative">
+                                            
+                                            <img class="img-fluid" src="data_app/image/{{ $item->filenames6 }}" alt="">
+                                        </div>
+                                        <div class="price-detials">
+                                            <div class="row">
+                                                <div class="col-lg-6 col-sm-6 mb-5 hovo"><a href="#" class="price-btn"><span><i class="fa fa-heart" aria-hidden="true"></i></span></a></div>
+                                                <div class="col-lg-6 col-sm-6 hovo"> <a href="#" class="price-btn"><span><i class="fa fa-share-alt-square" aria-hidden="true"></i></span></a></div>
+                                               </div>
+                                            
+                                        </div>
+                                        </div> 
+                        @endforeach
+                        
                         
                        
                 </div>
             </div>
+            <?php $i = 0; ?>
+            @foreach ( $offre as $offres )
+            <?php $i++ ?>
+            @if ( $i <= 1)
 
             <div class="Titre-slide text-center mt-5">
                 <div class="style-1">
@@ -131,8 +181,8 @@
                     
                 </div>
                 <div class="sale-title mb-5">
-                    <h2>Emirats Arabes Unis / Dubaï</h2>
-                    <h1>Movenpick Hotel &amp; Apartments Bur Dubai 5*</h1>
+                    <h2>{{ $offres->titre }}</h2>
+                    <h1>{{ $offres->sous_titre }}</h1>
                     
                 </div>
                 
@@ -157,14 +207,8 @@
                             <div class="details">
                                 <h4 class="title-bor">DESCRIPTION</h4>
                                 <p>
-                                    <p>Horaire d'arrivée : 15:00
-                                        Horaire de départ : 12:00
-                                        Les animaux de compagnie ne sont pas acceptés.
-                                        Le montant de la taxe de séjour à régler sur place est d'environ 6$/chambre/jour
-                                        Ce prix est donné à titre indicatif et peut être amené à changer en fonction des décisions des autorités locales.
-                                        
-                                        Horaires et tarifs à titre indicatif, sous réserve de modification.</p>
-                                    <ul class="offer-block-list">
+                                    <p>{{ $offres->desc_1 }}</p>
+                                    {{-- <ul class="offer-block-list">
                                         <li class="offer-block-list-item">En chambre Standard Double/Twin ou Standard Triple ou Familiale ou Supérieure</li>
                                         <li class="offer-block-list-item">En formule tout inclus&nbsp;</li>
                                         <li class="offer-block-list-item">Hébergement gratuit pour le 1er enfant de 3 à 11 ans partageant la chambre de deux adultes payants</li>
@@ -172,7 +216,7 @@
                                         <li class="offer-block-list-item">2 séances de sauna (environ 20 minutes) offertes par séjour de 4 ou 5 nuits et par adulte à partir de 16 ans</li>
                                         <li class="offer-block-list-item">3 séances de sauna (environ 20 minutes) offertes par séjour de 6 ou 7 nuits et par adulte à partir de 16 ans</li>
                                         <li class="offer-block-list-item">4 séances de sauna (environ 20 minutes) offertes par séjour à partir de 8 nuits et par adulte à partir de 16 ans</li>
-                                    </ul>
+                                    </ul> --}}
                                 </p>
                                 
                                     													
@@ -186,12 +230,13 @@
                                 <div class="welike">
                                     <span style="font-size: 0px;"></span>
                                     <h4 class="title-bor">Nous avons testé et aimé </h4>
-                                    <ul>
+                                    <p>{{ $offres->desc_2 }}</p>
+                                    {{-- <ul>
                                         <li>S'installer dans un établissement 5* élégant et luxueux, bénéficiant d'un emplacement idéal pour rejoindre aisément les principaux sites d'intérêts</li>
                                         <li>Poser ses valises en chambre Exécutive, confortable et moderne</li>
                                         <li>Bénéficier du surclassement en formule demi-pension (hors boissons) pour faire voyager ses papilles</li>
                                         <li>Faire le plein de sensations et de découvertes grâce aux 4 excursions incluses </li>
-                                    </ul>
+                                    </ul> --}}
                                 </div>
                             </div>
                             </div>
@@ -205,9 +250,9 @@
                                 <div class="welike">
                                     <span style="font-size: 0px;"></span>
                                     <h4 class="title-bor">Présentation</h4>
-                                    <video controls muted autoplay preload="auto" id="idvideo2" width="100%">
-                                        <source type="video/mp4" src="img/video/travel.webm"></source>
-                                    </video>   
+                                    <iframe width="560" height="315" src="{{ $offres->video }}"  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    
+                                   
                                 </div>
                             </div>
                             </div>
@@ -215,31 +260,41 @@
                        
                         <!-- end video -->
                         <!-- start  comment -->
-                        {{-- <div class="col-lg-12 col-sm-12">
+                         <div class="col-lg-12 col-sm-12">
                             <div class="single-destinations">
                             <div class="details">
-                                <div class="col-12 ">
-                                    
-                                    <h4 class="title-bor mb-3">commentaire</h4>
-                                    <div class="rating">
-                                        <div class="stars">
-                                          <i class="fa fa-star gold"></i>
-                                          <i class="fa fa-star gold"></i>
-                                          <i class="fa fa-star"></i>
-                                          <i class="fa fa-star"></i>
-                                          <i class="fa fa-star"></i>
-                                        </div>
-                                        
-                                      </div>
-                                    <input type="text" value="Email">
+                                <div class="col-12">
+                                     @if(session('success'))
+                                    <div class="alert alert-success">
+                                    {{ session('success') }}
+                                    </div> 
+                                     @endif
+
+                                    <h2 style="font-style: italic;color: orange">Ajouter votre avis </h2>
+                                    <form  action="{{url('avis')}}" enctype="multipart/form-data"  method="post">
+                                    @csrf
+                                    <fieldset class="rating mt-3">
+                                        <input type="radio" id="star5" name="star" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                                        <input type="radio" id="star4half" name="star" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                                        <input type="radio" id="star4" name="star" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                                        <input type="radio" id="star3half" name="star" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+                                        <input type="radio" id="star3" name="star" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                                        <input type="radio" id="star2half" name="star" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                                        <input type="radio" id="star2" name="star" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                                        <input type="radio" id="star1half" name="star" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+                                        <input type="radio" id="star1" name="star" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                                        {{-- <input type="radio" id="starhalf" name="star" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label> --}}
+                                    </fieldset>
+                                      <input type="text" class="form-control mb-3" name="email"  placeholder="Nom et Prénom" aria-label="Username" aria-describedby="basic-addon1">
                                     
                                    
-                                    <textarea class="col-12" name="comment" id="" cols="80px" rows="10" placeholder="votre commentaire" ></textarea>
-                                    <button class="btn btn-warning btn-block"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                                    <textarea class="form-control mb-3" aria-label="With textarea" name="message" id="" cols="80px" rows="10" placeholder="votre commentaire" ></textarea>
+                                    <button type="submit" class="btn btn-outline-info btn-block"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                                    </form>
                                 </div>
                             </div>
                             </div>
-                        </div> --}}
+                        </div> 
                         <!-- end comment -->
                        
                     </div>
@@ -255,7 +310,7 @@
                                     <h4>A partir de <span style="color: royalblue"><i class="fa fa-tag" aria-hidden="true"></i></span> </h4>
                                     <ins>
                                         
-                                        <span class="price-color"> 1200,50€ </span>
+                                        <span class="price-color"> {{ $offres->prix }} € </span>
                                       </ins> 
                                    </dir>
                                     
@@ -276,66 +331,86 @@
                                     <ul class="package-list">
                                         <li class="d-flex justify-content-between align-items-center">
                                             <span>Nombre des places </span>
-                                            <h6>25 Personnes</h6>
+                                            <h6>{{ $offres->nbr_perso }} Personnes</h6>
                                         </li>
                                         <li class="d-flex justify-content-between align-items-center">
                                             <span>Date</span>
-                                            <h6>18.04.2018</h6>
+                                            <h6>{{ $offres->date_depart }}</h6>
                                         </li>
                                         <li class="d-flex justify-content-between align-items-center">
                                             <span>Airport</span>
-                                            <h6>Casablanca</h6>
+                                            <h6>{{ $offres->airport }}</h6>
                                             
                                         </li>
                                   
                                         
                                         <li class="d-flex justify-content-between align-items-center">
                                             <span>Econnomique </span>
-                                                <input id="stackedCheck1" class="form-check-input" type="checkbox" data-toggle="toggle" checked >
+                                                <input id="stackedCheck1" class="form-check-input" onClick="checko()" type="checkbox" value="0" >
                                            
                                         </li>	
                                         <li class="d-flex justify-content-between align-items-center">
                                             <span>Business <h6 >(+ 50€ )</h6></span>
-                                                <input id="stackedCheck1" class="form-check-input" type="checkbox" data-toggle="toggle" >
+                                                <input id="stackedCheck2" class="form-check-input " onClick="checko()" type="checkbox" value="50" >
                                            
                                         </li>
                                         <li class="d-flex justify-content-between align-items-center">
                                             <select class="browser-default custom-select">
                                                 <option selected="">Ville de départ</option>
-                                                <option value="1">casablanca</option>
-                                                <option value="2">rabat</option>
-                                                <option value="3">tanger</option>
+                                                <option value="1">Paris</option>
+                                                <option value="2">Bordeaux</option>
+                                                <option value="3">Lille</option>
+                                                <option value="3">Nante</option>
                                               </select> 
                                             
                                         </li>
                                         <li class="d-flex justify-content-between align-items-center">
-                                            Date de départ:
+                                            <span>Date de départ: </span> 
 
                                             <input type="date" value="2021-11-18" min="2005-01-01" max="2019-01-01">
                                         </li>
-                                        <li class="d-flex justify-content-between align-items-center">
+                                        
                                             
-                                            <span>Nombre des nuits</span>
-                                            <div class="num-block skin-2">
+                                            <li class="d-flex justify-content-between align-items-center" id="night_price">
+                                                <span>Nombre des nuits</span>
+                                                <select class="browser-default custom-select" id="list" >
+                                                    
+                                                    <option value="523.96 " selected>3 nuits (523.96 €)</option>
+                                                    <option value="609.96">4 nuits (609.96 €)</option>
+                                                    <option value="812.96">5 nuits (812.96 €)</option>
+                                                    <option value="978.96">6 nuits (978.96 €)</option>
+                                                    <option value="1100.96">7 nuits (1100.96 €)</option>
+                                                    <option value="1300.96">8 nuits (1300.96 €)</option>
+                                                    <option value="1450.96">9 nuits (1450.96 €)</option>
+                                                    <option value="1690.96">10 nuits (1690.96 €)</option>
+                                                    <option value="1800.96">11 nuits (1800.96 €)</option>
+                                                    <option value="1863.96">12 nuits (1863.96 €)</option>
+                                                    <option value="2100.96">13 nuits (2100.96 €)</option>
+                                                    <option value="2500.96">14 nuits (2500.96 €)</option>
+                                                    <option value="3009.96 €">15 nuits (3009.96 €)</option>
+                                                  </select> 
+                                                
+                                            </li>
+                                            {{-- <div class="num-block skin-2">
                                                 <div class="num-in">
                                                   <span class="minus dis"></span>
-                                                  <input type="text" class="in-num" value="1" readonly="">
+                                                  <input type="text" class="in-num" id="nuit" value="1" readonly="">
                                                   <span class="plus"></span>
                                                 </div>
-                                              </div>
+                                              </div> --}}
                                             {{-- <input type="date" value="2021-11-18" min="2005-01-01" max="2019-01-01"> --}}
                                                 
                                             
                                             
-                                        </li>
+                                   
                                         <li class="d-flex justify-content-between align-items-center">
                                             
                                             <h5>Enfants <h6 style="color:#96969b ">(3-11 ans)</h6></h5> 
                                             <div class="num-block skin-2">
                                                 <div class="num-in">
-                                                  <span class="minus dis"></span>
-                                                  <input type="text" class="in-num" value="1" readonly="">
-                                                  <span class="plus"></span>
+                                                  <span class="minus dis" onchange="show()"></span>
+                                                  <input type="text" class="in-num"  value="1" id="enfant" readonly="">
+                                                  <span class="plus" ></span>
                                                 </div>
                                               </div>
                                             
@@ -347,15 +422,23 @@
                                             <div class="num-block skin-2">
                                                 <div class="num-in">
                                                   <span class="minus dis"></span>
-                                                  <input type="text" class="in-num" value="1" readonly="">
+                                                  <input type="text" class="in-num"  value="1" id="adult" readonly="">
                                                   <span class="plus"></span>
                                                 </div>
                                               </div> 
                                             
                                             
                                         </li>	
-                                        <li class="text-center">
-                                            <button type="button" class="btn btn_valider btn-lg" >Calculer le prix final</button>
+                                        <li class="text-center" >
+                                            <button type="button" class="btn btn_valider btn-lg" onclick="calcul()">Calculer le prix final</button>
+                                        </li>
+
+                                        <li  class="text-center" id="prix_show" style="display: none">
+                                        <h3>prix :</h3>
+                                         <h1 id="prixx" style="color:#09C6AB"> </h1>
+                                          <a class="btn btn-success mt-3" href="http://127.0.0.1:8000/paiement">valider ma commande <i class="fas fa-arrow-right"></i> </a>
+                                            
+                                            
                                         </li>			
                                         
                                             
@@ -422,121 +505,54 @@
 		            </div>
 		            <div class="row">
 		                <div class="active-testimonial">
-		                    <div class="single-testimonial item d-flex flex-row">
+                            @foreach ($avis as $avis)
+                            <div class="single-testimonial item d-flex flex-row">
 		                        <div class="thumb">
-		                            <img class="img-fluid" src="img/elements/user1.png" alt="">
+		                            <img class="img-fluid" src="img/elements/user3.png" alt="">
 		                        </div>
 		                        <div class="desc">
 		                            <p>
-		                                Do you want to be even more successful? Learn to love learning and growth. The more effort you put into improving your skills, the bigger the payoff you.		     
+		                                {{$avis->message}}		     
 		                            </p>
-		                            <h4>Harriet Maxwell</h4>
+		                            <h4>{{$avis->email}}</h4>
 	                            	<div class="star">
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star"></span>				
+								@if (($avis->star) === "1")
+								 <span style="color: gold"><i class="fas fa-star"></i></span>
+							    @elseif(($avis->star) === "1 and a half")
+								 <span style="color: gold"><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></span>	
+								 @elseif(($avis->star) === "2")
+								 <span style="color: gold"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+								 @elseif(($avis->star) === "2 and a half")
+								 <span style="color: gold"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></span>	
+								@elseif(($avis->star) === "3 and a half")
+								<span style="color: gold"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></span>	
+								@elseif(($avis->star) === "3")
+								<span style="color: gold"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>	
+								@elseif(($avis->star) === "3 and a half")
+								<span style="color: gold"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></span>	
+								@elseif(($avis->star) === "4")
+								<span style="color: gold"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+								@elseif(($avis->star) === "4 and a half")
+								<span style="color: gold"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></span>	
+								@elseif(($avis->star) === "5")
+								<span style="color: gold"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+								@elseif(($avis->star) === "5 and a half")
+								<span style="color: gold"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></span>		
+								@endif			
 									</div>	
 		                        </div>
 		                    </div>
-		                    <div class="single-testimonial item d-flex flex-row">
-		                        <div class="thumb">
-		                            <img class="img-fluid" src="img/elements/user2.png" alt="">
-		                        </div>
-		                        <div class="desc">
-		                            <p>
-		                                A purpose is the eternal condition for success. Every former smoker can tell you just how hard it is to stop smoking cigarettes. However.
-		                            </p>
-		                            <h4>Carolyn Craig</h4>
-	                           		<div class="star">
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star"></span>
-										<span class="fa fa-star"></span>			
-									</div>	
-		                        </div>
-		                    </div>
-		                    <div class="single-testimonial item d-flex flex-row">
-		                        <div class="thumb">
-		                            <img class="img-fluid" src="img/elements/user1.png" alt="">
-		                        </div>
-		                        <div class="desc">
-		                            <p>
-		                                Do you want to be even more successful? Learn to love learning and growth. The more effort you put into improving your skills, the bigger the payoff you.		     
-		                            </p>
-		                            <h4>Harriet Maxwell</h4>
-	                            	<div class="star">
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star"></span>				
-									</div>	
-		                        </div>
-		                    </div>
-		                    <div class="single-testimonial item d-flex flex-row">
-		                        <div class="thumb">
-		                            <img class="img-fluid" src="img/elements/user2.png" alt="">
-		                        </div>
-		                        <div class="desc">
-		                            <p>
-		                                A purpose is the eternal condition for success. Every former smoker can tell you just how hard it is to stop smoking cigarettes. However.
-		                            </p>
-		                            <h4>Carolyn Craig</h4>
-	                           		<div class="star">
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star"></span>
-										<span class="fa fa-star"></span>			
-									</div>	
-		                        </div>
-		                    </div>
-		                    <div class="single-testimonial item d-flex flex-row">
-		                        <div class="thumb">
-		                            <img class="img-fluid" src="img/elements/user1.png" alt="">
-		                        </div>
-		                        <div class="desc">
-		                            <p>
-		                                Do you want to be even more successful? Learn to love learning and growth. The more effort you put into improving your skills, the bigger the payoff you.		     
-		                            </p>
-		                            <h4>Harriet Maxwell</h4>
-	                            	<div class="star">
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star"></span>				
-									</div>	
-		                        </div>
-		                    </div>
-		                    <div class="single-testimonial item d-flex flex-row">
-		                        <div class="thumb">
-		                            <img class="img-fluid" src="img/elements/user2.png" alt="">
-		                        </div>
-		                        <div class="desc">
-		                            <p>
-		                                A purpose is the eternal condition for success. Every former smoker can tell you just how hard it is to stop smoking cigarettes. However.
-		                            </p>
-		                            <h4>Carolyn Craig</h4>
-	                           		<div class="star">
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star"></span>
-										<span class="fa fa-star"></span>			
-									</div>	
-		                        </div>
-		                    </div>		                    		                    
+                            @endforeach
+		                    
+		                                        		                    
 		                </div>
 		            </div>
 		        </div>
 		    </section>
 		    <!-- End testimonial Area -->
         <!-- End home-about Area -->
-
+        @endif
+       @endforeach
         <!-- start footer Area -->		
         <footer class="footer-area section-gap">
             <div class="container">
@@ -685,6 +701,49 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                     
                     });
                     // product +/-
+        </script>
+         <script>
+            function checko(){
+                  var eco = document.getElementById("stackedCheck1");
+                      bus = document.getElementById("stackedCheck2");
+              if( eco.checked ){
+                  document.getElementById("stackedCheck2").checked = false;
+             }
+              if(bus.checked){
+                  document.getElementById("stackedCheck1").checked = false;
+              }
+            }
+       
+                     
+            function calcul(){
+                var business = parseFloat(document.getElementById('stackedCheck2').value);
+                    econnomique = parseFloat(document.getElementById('stackedCheck1').value);
+                    night_p = parseFloat(document.getElementById('list').value);
+                    child = parseFloat(document.getElementById('enfant').value);
+                    major = parseFloat(document.getElementById('adult').value);
+                    calc_final = 0 ;
+                    bus = document.getElementById("stackedCheck2");
+
+
+
+                 if(bus.checked){
+
+                    document.getElementById("stackedCheck1").checked = false;
+                    calc_final = business + night_p + child + major;
+                 }else{
+                   
+                    calc_final = night_p + child + major;
+                 }
+
+                 
+                 document.getElementById("prix_show").style.display = "";
+                 document.getElementById('prixx').innerHTML = calc_final +" "+"€";
+               
+            }
+        
+        
+        
+
         </script>
 
     </body>

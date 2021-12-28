@@ -14,7 +14,7 @@
     <!-- meta character set -->
     <meta charset="UTF-8">
     <!-- Site Title -->
-    <title>Travel</title>
+    <title>VOYANEO</title>
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -102,12 +102,18 @@
                         </ul>
                         <div class="tab-content" id="myTabContent">
                           <div class="tab-pane fade show active" id="flight" role="tabpanel" aria-labelledby="flight-tab">
-                            <form class="form-wrap ">
+                            <form class="form-wrap " method="POST" action="{{ route('login.custom') }}">
+
                                 @if(Session::has('success'))
                                 <div class="alert alert-success">
-                                     {{Session::get('success')}} &#10060;
+                                     {{Session::get('success')}} 
                                 </div>
                                @endif
+                               @if(Session::has('danger'))
+                               <div class="alert alert-danger">
+                                    {{Session::get('danger')}} 
+                               </div>
+                              @endif
                                <!-- end message d'error -->
                                 @csrf
                                 <div class="form-group mb-3">
@@ -135,12 +141,14 @@
                                   
                                   <hr/>	
                                   						
-                                <a href="#" class="primary-btn text-uppercase">Se connecter</a>									
+                                
+                                <button type="submit" class="primary-btn text-uppercase">Se connecter</button>								
                             </form>
                           </div>
                           <div class="tab-pane fade" id="hotel" role="tabpanel" aria-labelledby="hotel-tab">
-                            <form class="form-wrap">
-                                @csrf
+                            <form class="form-wrap" action="{{ route('register.custom') }}" method="POST" class="requires-validation" novalidate>
+                                
+                         @csrf
                                 <div class="form-group mb-3">
                                   <input type="text" placeholder="Nom" id="name" class="form-control" name="name"
                                       required autofocus>
@@ -170,20 +178,23 @@
                                   <div class="valid-feedback">Le champ du mot de passe est valide !</div>
                                    <div class="invalid-feedback">Le champ du mot de passe est valide !</div>
                               </div>
+
                               <div class="form-group mb-3">
-                                <input type="password" placeholder="Code de parrainage" id="password" class="form-control"
-                                    name="password" required>
-                                @if ($errors->has('password'))
-                                <span class="text-danger">{{ $errors->first('password') }}</span>
+                                <input type="text" placeholder="code parrainage" id="parrainage" class="form-control"
+                                    name="cle_paro" required>
+                                @if ($errors->has('warning'))
+                                <span class="text-danger">{{ $errors->first('warning') }}</span>
                                 @endif
                                 <div class="valid-feedback">Le champ du mot de passe est valide !</div>
                                  <div class="invalid-feedback">Le champ du mot de passe est valide !</div>
                             </div>
+                              
                                   {{-- <input type="parrainage" placeholder="Code de parrainage"/> --}}
                                   
                                   <p>Clicking <strong>create account</strong> means that you are agree to our <a href="javascript:void(0)">terms of services</a>.</p>
-                                  <hr/>					
-                                <a href="#" class="primary-btn text-uppercase">Inscription</a>									
+                                  <hr/>	
+                                  <button type="submit" class="primary-btn text-uppercase">Inscription</button>				
+                                									
                             </form>							  	
                           </div>
                           

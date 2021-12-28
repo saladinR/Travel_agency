@@ -41,7 +41,7 @@
               <div class="collapse navbar-collapse " id="navbarText">
                 <ul class="navbar-nav ml-auto mb-2 ">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#"><i class="fa fa-heart fa-2x" aria-hidden="true"></i> FAVORIS</a>
+                    <a class="nav-link active" aria-current="page" href="http://127.0.0.1:8000/home"><i class="fa fa-home fa-2x" aria-hidden="true"></i> HOME</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link active" href="#"><i class="fa fa-suitcase fa-2x" aria-hidden="true"></i> COMMANDE</a>
@@ -52,13 +52,15 @@
                   <li class="nav-item">
                     <div class="dropdown">
                         <button class="btn btnnav dropdown-toggle mt-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fa fa-user-circle fa-4x" aria-hidden="true"></i> COMPTE
+                            <i class="fa fa-user-circle fa-4x" aria-hidden="true"></i> {{Auth::user()->name}}
                         </button>
+                        @if (isset(Auth::user()->email))
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" href="#">Action</a>
-                          <a class="dropdown-item" href="#">Another action</a>
-                          <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
+                            <a class="dropdown-item bg-light" >{{Auth::user()->email}}</a>
+                            <a class="dropdown-item" href="#">Modifier mon compte</a>
+                            <a class="dropdown-item" href="{{ url('signout') }}">Déconnecter</a>
+                          </div> 
+                        @endif
                       </div>
                   </li>
                 </ul>
@@ -86,6 +88,7 @@
 
         <!-- Start contact-page Area -->
         <section class="contact-page-area section-gap pt-5 pb-5">
+           
             <div class="container">
                 <div class="row">
                     
@@ -121,7 +124,13 @@
                         </div>														
                     </div>
                     <div class="col-lg-8">
-                        <form class="form-area contact-form text-right" id="myForm" action="mail.php" method="post">
+                        @if(session('success'))
+                        <div class="alert alert-success">
+                          {{ session('success') }}
+                        </div> 
+                        @endif
+                        <form method="POST" action="{{url('contact')}}" enctype="multipart/form-data" class="form-area contact-form text-right">
+                            @csrf
                             <div class="row">	
                                 <div class="col-lg-6 form-group">
                                     <input name="name" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" class="common-input mb-20 form-control" required="" type="text">
@@ -135,7 +144,7 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="alert-msg" style="text-align: left;"></div>
-                                    <button class="genric-btn primary" style="float: right;">Send Message</button>											
+                                    <button type="submit" class="genric-btn primary" style="float: right;">Send Message</button>											
                                 </div>
                             </div>
                         </form>	
