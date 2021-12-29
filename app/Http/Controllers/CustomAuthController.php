@@ -53,7 +53,7 @@ class CustomAuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             if(Auth::user()->role == 'admin') {
-                return redirect()->intended('/admin');
+                return redirect()->route('admin.dashboard');
             }else{
             return redirect()->intended('/home');
         }

@@ -62,7 +62,7 @@ Route::post('upload', [ImageUploadController::class, 'upload']);
 
 //**file */
 
-Route::get('admin', [FileController::class, 'show']);
+Route::get('admin', [FileController::class, 'show'])->name('admin');
 
 Route::post('admin/create', [FileController::class, 'create']);
 Route::get('admin/edit', [FileController::class, 'edit']);
@@ -70,7 +70,7 @@ Route::post('admin/update/{id}', [FileController::class, 'update']);
 
 
 /** affichage des données  */
-Route::get('home', [FileController::class, 'index'])->middleware('auth');; 
+Route::get('home', [FileController::class, 'index'])->name('home')->middleware('auth'); 
 
 
 /**contact route */
