@@ -80,10 +80,10 @@ Route::post('contact', [ContactController::class, 'create']);
 Route::get('contact-show', [ContactController::class, 'show']);
 Route::get('contact-show/{id}', [ContactController::class, 'destroy']);
 /**crud client */
-Route::get('client-show', [UserController::class, 'show']);
-Route::post('client-show/create', [UserController::class, 'store']); 
-Route::post('client-show/{id}', [UserController::class, 'update']); 
-Route::get('client-show/delete/{id}', [UserController::class, 'destroy']);
+Route::get('client-show', [UserController::class, 'show'])->name('client-show');
+Route::post('client-show/create', [UserController::class, 'store'])->name('client-show.create'); 
+Route::post('client-show/{id}', [UserController::class, 'update'])->name('client-show.update'); 
+Route::get('client-show/delete/{id}', [UserController::class, 'destroy'])->name('client-show.delete');
 
 /**avis route */
 Route::get('avis/show', [avisController::class, 'show']); 

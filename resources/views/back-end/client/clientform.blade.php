@@ -61,7 +61,7 @@
 					</li>
 						
 					<li class="sidebar-item active">
-						<a class="sidebar-link" href="http://127.0.0.1:8000/client-show">
+						<a class="sidebar-link" href="{{ route('client-show') }}">
 							<i class="fas fa-user"></i> <span class="align-middle">client</span>
             </a>
 			           
