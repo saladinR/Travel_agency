@@ -37,7 +37,7 @@
 					</li>
 
 					<li class="sidebar-item ">
-						<a class="sidebar-link" href="http://127.0.0.1:8000/admin">
+						<a class="sidebar-link" href="https://voyaneo.herokuapp.com/admin">
 							<i class="align-middle" data-feather="map"></i>  <span class="align-middle">Offre</span>
             </a>
 					</li>
@@ -49,19 +49,19 @@
 					</li>
 
 					<li class="sidebar-item active">
-						<a class="sidebar-link" href="http://127.0.0.1:8000/avis/show">
+						<a class="sidebar-link" href="https://voyaneo.herokuapp.com/avis/show">
 							<i class="fas fa-star"></i> <span class="align-middle">Avis</span>
             </a>
 					</li>
 
 					<li class="sidebar-item ">
-						<a class="sidebar-link" href="http://127.0.0.1:8000/contact-show">
+						<a class="sidebar-link" href="https://voyaneo.herokuapp.com/contact-show">
 							<i class="fas fa-comments"></i> <span class="align-middle">Contact</span>
             </a>
 					</li>
 						
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="http://127.0.0.1:8000/client-show">
+						<a class="sidebar-link" href="https://voyaneo.herokuapp.com/client-show">
 							<i class="fas fa-user"></i> <span class="align-middle">client</span>
             </a>
 					</li>
