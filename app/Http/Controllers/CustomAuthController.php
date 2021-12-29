@@ -14,6 +14,24 @@ class CustomAuthController extends Controller
 
     public function index()
     {
+       
+        $cle_par = 'PA00000';
+
+        if (User::where('cle_par',$cle_par )->first() === null) {
+
+            $data =  new User;
+        
+            $data->name = "yves";
+            $data->email = "test@gmail.com";
+            $data->password = Hash::make("123456");
+            $data->cle_par = "PA00000";
+            $data->role ='admin';
+    
+            $data->save();
+         
+         }
+        
+
         return view('front-end.index');
     }  
       
