@@ -139,7 +139,7 @@
               </a>
 
 							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-								<i class="fas fa-user-tie fa-2x"></i> <span class="text-dark font-weight-bold">{{Auth::user()->name}}</span>
+								<i class="fas fa-user-tie fa-2x"></i> <span class="text-dark font-weight-bold"></span>
               </a>
 							<div class="dropdown-menu dropdown-menu-end">
 								{{-- <a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
