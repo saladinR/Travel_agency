@@ -175,7 +175,7 @@
 				   </div> 
 				   @endif
 				   <!-- end message -->
-					<h1 class="h3 mb-3">Welcome Admin <i class="far fa-grin-alt"></i> <strong style="color: rgb(62, 186, 207)"> {{Auth::user()->name}}</strong></h1>
+					<h1 class="h3 mb-3">Welcome Admin <i class="far fa-grin-alt"></i> <strong style="color: rgb(62, 186, 207)"></strong></h1>
                      <hr >
 					<form method="POST" action="{{url('admin/create')}}" enctype="multipart/form-data" class="mt-5">
 						@csrf
