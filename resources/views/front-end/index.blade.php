@@ -116,6 +116,7 @@
                               @endif
                                <!-- end message d'error -->
                                 @csrf
+                                {{ csrf_field() }}
                                 <div class="form-group mb-3">
                                     <input type="text" placeholder="Addresse email" id="email" class="form-control" name="email" required
                                         autofocus>
@@ -149,6 +150,7 @@
                             <form class="form-wrap" action="{{ route('register.custom') }}" method="POST" class="requires-validation" novalidate>
                                 
                          @csrf
+                         {{ csrf_field() }}
                                 <div class="form-group mb-3">
                                   <input type="text" placeholder="Nom" id="name" class="form-control" name="name"
                                       required autofocus>
