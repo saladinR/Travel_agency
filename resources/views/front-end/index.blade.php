@@ -102,19 +102,19 @@
                         </ul>
                         <div class="tab-content" id="myTabContent">
                           <div class="tab-pane fade show active" id="flight" role="tabpanel" aria-labelledby="flight-tab">
+                            @if(Session::has('success'))
+                            <div class="alert alert-success">
+                                 {{Session::get('success')}} 
+                            </div>
+                           @endif
+                           @if(Session::has('danger'))
+                           <div class="alert alert-danger">
+                                {{Session::get('danger')}} 
+                           </div>
+                          @endif
+                           <!-- end message d'error -->
                             <form class="form-wrap " method="POST" action="{{ route('login.custom') }}">
 
-                                @if(Session::has('success'))
-                                <div class="alert alert-success">
-                                     {{Session::get('success')}} 
-                                </div>
-                               @endif
-                               @if(Session::has('danger'))
-                               <div class="alert alert-danger">
-                                    {{Session::get('danger')}} 
-                               </div>
-                              @endif
-                               <!-- end message d'error -->
                                 @csrf
                                 {{ csrf_field() }}
                                 <div class="form-group mb-3">
