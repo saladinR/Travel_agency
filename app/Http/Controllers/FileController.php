@@ -47,7 +47,7 @@ class FileController extends Controller
             $file = $request->filenames1;
             $extension1 =date("Y-m-d").'_'.$t.'_'.$file->getClientOriginalName();
            
-            $file->move(public_path('data_image/image'), $extension1); 
+            $file->move(public_path('data_image/'), $extension1); 
             
             $data->filenames1 = $extension1;
             // die($data['video']); 
@@ -57,7 +57,7 @@ class FileController extends Controller
             $file = $request->filenames2;
             $extension2 =date("Y-m-d").'_'.$t.'_'.$file->getClientOriginalName();
            
-            $file->move(public_path('data_image/image'), $extension2); 
+            $file->move(public_path('data_image/'), $extension2); 
             
             $data->filenames2 = $extension2;
             // die($data['video']); 
@@ -67,7 +67,7 @@ class FileController extends Controller
             $file = $request->filenames3;
             $extension3 =date("Y-m-d").'_'.$t.'_'.$file->getClientOriginalName();
            
-            $file->move(public_path('data_image/image'), $extension3); 
+            $file->move(public_path('data_image/'), $extension3); 
             
             $data->filenames3 = $extension3;
             // die($data['video']); 
@@ -77,7 +77,7 @@ class FileController extends Controller
             $file = $request->filenames4;
             $extension4 =date("Y-m-d").'_'.$t.'_'.$file->getClientOriginalName();
            
-            $file->move(public_path('data_image/image'), $extension4); 
+            $file->move(public_path('data_image/'), $extension4); 
             
             $data->filenames4 = $extension4;
             // die($data['video']); 
@@ -87,7 +87,7 @@ class FileController extends Controller
             $file = $request->filenames5;
             $extension5 =date("Y-m-d").'_'.$t.'_'.$file->getClientOriginalName();
            
-            $file->move(public_path('data_image/image'), $extension5); 
+            $file->move(public_path('data_image/'), $extension5); 
             
             $data->filenames5 = $extension5;
             // die($data['video']); 
@@ -97,7 +97,7 @@ class FileController extends Controller
             $file = $request->filenames6;
             $extension6 =date("Y-m-d").'_'.$t.'_'.$file->getClientOriginalName();
            
-            $file->move(public_path('data_image/image'), $extension6); 
+            $file->move(public_path('data_image/'), $extension6); 
             
             $data->filenames6 = $extension6;
             // die($data['video']); 
