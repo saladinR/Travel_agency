@@ -31,7 +31,7 @@ use App\Http\Controllers\UserController;
 // });
 
 Route::get('/paiement', function () {
-    return view('front-end.paiement');
+    return view('front-end.paiement')->name('paiement');
 });
 
 //// authentification ///

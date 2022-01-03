@@ -436,7 +436,7 @@
                                         <li  class="text-center" id="prix_show" style="display: none">
                                         <h3>prix :</h3>
                                          <h1 id="prixx" style="color:#09C6AB"> </h1>
-                                          <a class="btn btn-success mt-3" href="http://127.0.0.1:8000/paiement">valider ma commande <i class="fas fa-arrow-right"></i> </a>
+                                          <a class="btn btn-success mt-3" href="{{ url('/paiement') }}">valider ma commande <i class="fas fa-arrow-right"></i> </a>
                                             
                                             
                                         </li>			
