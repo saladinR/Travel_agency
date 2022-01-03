@@ -59,7 +59,7 @@
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                          {{-- <a class="dropdown-item bg-light" >{{Auth::user()->email}}</a> --}}
                             <a class="dropdown-item bg-light"> code : <input type="text" value="{{Auth::user()->cle_par}}"  id="code_par" disabled></a>
-                            <a  data-bs-toggle="modal" href="" data-bs-target="#ModalEdit" ><i class="fas fa-user-minus"></i> Modifier mon compte</a>
+                            <a  data-bs-toggle="modal" href="" data-bs-target="#ModalEdit" >Modifier mon compte</a>
                             <a class="dropdown-item" href="{{ url('signout') }}">Déconnecter</a>
                           </div> 
                         @endif
