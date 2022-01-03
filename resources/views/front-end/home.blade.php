@@ -57,9 +57,9 @@
                         </button>
                         @if (isset(Auth::user()->email))
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                         <a class="dropdown-item bg-light" >{{Auth::user()->email}}</a>
+                         {{-- <a class="dropdown-item bg-light" >{{Auth::user()->email}}</a> --}}
                             <a class="dropdown-item bg-light"> code : <input type="text" value="{{Auth::user()->cle_par}}"  id="code_par" disabled></a>
-                            <a class="dropdown-item" href="#">Modifier mon compte</a>
+                            <a  data-bs-toggle="modal" href="" data-bs-target="#ModalEdit" ><i class="fas fa-user-minus"></i> Modifier mon compte</a>
                             <a class="dropdown-item" href="{{ url('signout') }}">Déconnecter</a>
                           </div> 
                         @endif
@@ -73,7 +73,57 @@
           </nav>
   
         <!-- start banner Area -->
-        
+         <!-- edit user modal -->
+         <form action = "" method="post" enctype="multipart/form-data">
+						
+            {{ csrf_field() }}
+            <div id="ModalEdit" role="dialog" aria-modal="true" class="fade modal" tabindex="-1">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">edit modal</h4>
+                            <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="modal">
+                                
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Nom</label>
+                                <input type="text" class="form-control" name="name" value="" placeholder="Nom">
+                              </div>
+                              <div class="form-group">
+                                <label for="exampleFormControlInput1">Email</label>
+                                <input type="email" class="form-control" name="email"  value="" placeholder="Email">
+                              </div>
+                             
+                              <div class="form-group">
+                                <label for="exampleFormControlInput1">password</label>
+                                <input type="text" class="form-control" name="password"   value="" placeholder="password" >
+                              </div>
+                              <div class="form-check mb-3">
+                                <input class="form-check-input" type="radio" name="role"  value="admin">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                  Admin
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="role" value="user" checked>
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                  Client
+                                </label>
+                              </div>
+                              <div class="form-group">
+                                <label for="exampleFormControlInput1">code de parrainage</label>
+                                <input type="text" class="form-control" name="cle_par" value="" placeholder="code de parrainage" >
+                              </div>
+
+                                <button type="submit" name="send" class="btn btn-success  btn-block">Modifier</button>
+                              
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
         <!-- End banner Area -->
 
         <!-- Start hot-deal Area -->
