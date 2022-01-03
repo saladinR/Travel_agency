@@ -7,6 +7,7 @@ use App\Http\Controllers\FileController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\avisController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\paiementController;
 
 /*
 |--------------------------------------------------------------------------
