@@ -30,9 +30,8 @@ use App\Http\Controllers\UserController;
 //     return view('front-end.home');
 // });
 
-Route::get('/paiement', function () {
-    return view('front-end.paiement')->name('paiement');
-});
+
+Route::get('/paiement', [paiementController::class, 'index'])->name('paiement');
 
 //// authentification ///
 // Route::get('dashboard', [CustomAuthController::class, 'dashboard']); 
