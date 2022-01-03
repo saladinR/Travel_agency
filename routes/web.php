@@ -65,7 +65,7 @@ Route::post('upload', [ImageUploadController::class, 'upload']);
 Route::get('admin', [FileController::class, 'show'])->name('admin');
 
 Route::post('admin/create', [FileController::class, 'create']);
-Route::get('admin/edit', [FileController::class, 'edit']);
+Route::get('admin/edit', [FileController::class, 'edit'])->name('offre.edit');
 Route::post('admin/update/{id}', [FileController::class, 'update']);
 
 
