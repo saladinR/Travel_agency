@@ -315,8 +315,8 @@
 					    
 						<div class="col-12 text-center">
 							<button type="submit" class="btn btn-success " style="margin-top:20px;width:200px"><i class="fas fa-plus-circle"></i> Ajouter</button>
-							<a type="button" href="{{ url('home'}}" class="btn btn-primary " style="margin-top:20px;width:200px;color: white" target="blank"><i class="far fa-eye" style="color: white"></i> Voir le produit </a>
-							<a type="button" href="{{ url('offre.edit'}}" class="btn btn-warning " style="margin-top:20px;width:200px;color: white" target="blank"><i class="fas fa-edit" style="color: white"></i> Modifier  </a>
+							<a type="button" href="{{ url('home') }}" class="btn btn-primary " style="margin-top:20px;width:200px;color: white" target="blank"><i class="far fa-eye" style="color: white"></i> Voir le produit </a>
+							<a type="button" href="{{ url('offre.edit')}}" class="btn btn-warning " style="margin-top:20px;width:200px;color: white" target="blank"><i class="fas fa-edit" style="color: white"></i> Modifier  </a>
 						</div>
 						<!-- end row -->
 							</div>
