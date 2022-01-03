@@ -85,7 +85,7 @@
                         @foreach ($offre as $item)
                         <div class="single-carusel">
                             <div class="thumb relative">
-                                <img class="img-fluid" src="data_app/image/{{ $item->filenames1 }}" alt="">
+                                <img class="img-fluid" src="data_image/{{ $item->filenames1 }}" alt="">
                             </div>
                             <div class="price-detials">
                                <div class="row">
@@ -99,7 +99,7 @@
                         <div class="single-carusel">
                             <div class="thumb relative">
                                 
-                                <img class="img-fluid" src="data_app/image/{{ $item->filenames2 }}" alt="" >
+                                <img class="img-fluid" src="data_image/{{ $item->filenames2 }}" alt="" >
                             </div>
                             <div class="price-detials">
                                 <div class="row">
@@ -112,7 +112,7 @@
                         <div class="single-carusel">
                             <div class="thumb relative">
                                 
-                                <img class="img-fluid" src="data_app/image/{{ $item->filenames3 }}" alt="">
+                                <img class="img-fluid" src="data_image/{{ $item->filenames3 }}" alt="">
                             </div>
                             <div class="price-detials">
                                 <div class="row">
@@ -125,7 +125,7 @@
                             <div class="single-carusel">
                                 <div class="thumb relative">
                                     
-                                    <img class="img-fluid" src="data_app/image/{{ $item->filenames4 }}" alt="">
+                                    <img class="img-fluid" src="data_image/{{ $item->filenames4 }}" alt="">
                                 </div>
                                 <div class="price-detials">
                                     <div class="row">
@@ -138,7 +138,7 @@
                                 <div class="single-carusel">
                                     <div class="thumb relative">
                                         
-                                        <img class="img-fluid" src="data_app/image/{{ $item->filenames5 }}" alt="">
+                                        <img class="img-fluid" src="data_image/{{ $item->filenames5 }}" alt="">
                                     </div>
                                     <div class="price-detials">
                                         <div class="row">
@@ -151,7 +151,7 @@
                                     <div class="single-carusel">
                                         <div class="thumb relative">
                                             
-                                            <img class="img-fluid" src="data_app/image/{{ $item->filenames6 }}" alt="">
+                                            <img class="img-fluid" src="data_image/{{ $item->filenames6 }}" alt="">
                                         </div>
                                         <div class="price-detials">
                                             <div class="row">
