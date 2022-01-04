@@ -57,10 +57,11 @@
                         </button>
                         @if (isset(Auth::user()->email))
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                         {{-- <a class="dropdown-item bg-light" >{{Auth::user()->email}}</a> --}}
-                            <a class="dropdown-item bg-light"> code : <input type="text" value="{{Auth::user()->cle_par}}"  id="code_par" disabled></a>
-                            <a  data-bs-toggle="modal" href="" data-bs-target="#ModalEdit" >Modifier mon compte</a>
-                            <a class="dropdown-item" href="{{ url('signout') }}">Déconnecter</a>
+                         {{-- <a class="dropdown-item bg-light" href=""><i class="fas fa-user-circle"></i> {{Auth::user()->email}}</a> --}}
+                            {{-- <a class="dropdown-item bg-light"href=""><i class="fas fa-code-branch"></i> code : <input type="text" value="{{Auth::user()->cle_par}}"  id="code_par" disabled></a> --}}
+                            <a  class="dropdown-item bg-light" data-toggle="modal" data-target="#exampleModalCenter" href=""><i class="fas fa-code-branch"></i> Code parrainage</a>
+                            <a class="dropdown-item bg-light" data-toggle="modal" data-target="#exampleModalLong" href=""><i class="fas fa-user-edit"></i> modifier mon compte</a>
+                            <a class="dropdown-item" href="{{ url('signout') }}"><i class="fas fa-sign-out-alt"></i> Déconnecter</a>
                           </div> 
                         @endif
                        
@@ -73,58 +74,76 @@
           </nav>
   
         <!-- start banner Area -->
-         <!-- edit user modal -->
-         <form action = "" method="post" enctype="multipart/form-data">
-						
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-share-alt-square"></i> Partager le Code de parrainage </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body par-body">
+                    <div class="container_par">
+                       
+                        <div class="copy-text">
+                            <input type="text" class="text" value="{{Auth::user()->cle_par}}" />
+                            <button><i class="fa fa-clone"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+               
+                </div>
+            </div>
+            </div>
+        </div>
+<!-- start banner Area -->
+         <!-- Modal -->
+         <form action = "client-show/{{Auth::user()->id}}" method="post" enctype="multipart/form-data">
+                   
             {{ csrf_field() }}
-            <div id="ModalEdit" role="dialog" aria-modal="true" class="fade modal" tabindex="-1">
+            <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title">edit modal</h4>
-                            <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="modal">
-                                
-                            </button>
+                            <h4 class="modal-title"><i class="fas fa-user-edit"></i> Mon compte</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
                         </div>
+                
+                        @if(session('status'))
+                        <div class="alert alert-success">
+                          {{ session('status') }}
+                        </div> 
+                        @endif	
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Nom</label>
-                                <input type="text" class="form-control" name="name" value="" placeholder="Nom">
+                                <input type="text" class="form-control" name="name" value="{{Auth::user()->name}}" placeholder="Nom">
                               </div>
                               <div class="form-group">
                                 <label for="exampleFormControlInput1">Email</label>
-                                <input type="email" class="form-control" name="email"  value="" placeholder="Email">
-                              </div>
-                             
-                              <div class="form-group">
-                                <label for="exampleFormControlInput1">password</label>
-                                <input type="text" class="form-control" name="password"   value="" placeholder="password" >
-                              </div>
-                              <div class="form-check mb-3">
-                                <input class="form-check-input" type="radio" name="role"  value="admin">
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                  Admin
-                                </label>
-                              </div>
-                              <div class="form-check">
-                                <input class="form-check-input" type="radio" name="role" value="user" checked>
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                  Client
-                                </label>
+                                <input type="email" class="form-control" name="email"  value="{{Auth::user()->email}}" placeholder="Email">
                               </div>
                               <div class="form-group">
-                                <label for="exampleFormControlInput1">code de parrainage</label>
-                                <input type="text" class="form-control" name="cle_par" value="" placeholder="code de parrainage" >
+                                <label for="exampleFormControlInput1">nouveau mot de passe</label>
+                                <input type="password" class="form-control" name="password"   value="" placeholder="password" >
                               </div>
+                              
+                         
 
-                                <button type="submit" name="send" class="btn btn-success  btn-block">Modifier</button>
+                                <button type="submit" name="send" class="btn btn-warning  btn-block"><i class="fas fa-user-edit"></i> Modifier</button>
                               
                         </div>
                     </div>
                 </div>
             </div>
         </form>
-        <!-- End banner Area -->
+<!-- End banner Area -->
 
         <!-- Start hot-deal Area -->
         <section class="hot-deal-area section-gap " >

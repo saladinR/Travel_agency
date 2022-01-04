@@ -73,5 +73,15 @@ class UserController extends Controller
     
         return back()->with('danger', 'le client a étè supprimer');
     }
+    public function update_user(Request $request, $id)
+    {
+        $student = User::find($id);
+        $student->name = $request->input('name');
+        $student->email = $request->input('email');
+        $student->password = Hash::make($request->input('password'));
+     
+        $student->update();
+        return redirect()->back()->with('status','les informations son bien enregistrer');
+    }
   
 }

@@ -83,6 +83,7 @@ Route::get('contact-show/{id}', [ContactController::class, 'destroy']);
 Route::get('client-show', [UserController::class, 'show'])->name('client-show');
 Route::post('client-show/create', [UserController::class, 'store'])->name('client-show.create'); 
 Route::post('client-show/{id}', [UserController::class, 'update'])->name('client-show.update'); 
+Route::post('client-show/{id}', [UserController::class, 'update_user']); 
 Route::get('client-show/delete/{id}', [UserController::class, 'destroy'])->name('client-show.delete');
 
 /**avis route */
