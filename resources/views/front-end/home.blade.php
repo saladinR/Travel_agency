@@ -154,7 +154,7 @@
                         @foreach ($offre as $item)
                         <div class="single-carusel">
                             <div class="thumb relative">
-                                <img class="img-fluid" src="data_image{{ $item->filenames1 }}" alt="">
+                                <img class="img-fluid" src="data_image/{{ $item->filenames1 }}" alt="">
                             </div>
                             <div class="price-detials">
                                <div class="row">
