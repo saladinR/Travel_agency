@@ -32,7 +32,8 @@ use App\Http\Controllers\paiementController;
 // });
 
 
-Route::get('/paiement', [paiementController::class, 'index'])->name('paiement');
+Route::post('paiement', [paiementController::class, 'index']);
+Route::post('paiement/info', [paiementController::class, 'info']);
 
 //// authentification ///
 // Route::get('dashboard', [CustomAuthController::class, 'dashboard']); 
