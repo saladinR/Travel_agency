@@ -81,17 +81,25 @@
         <div class="row d-flex justify-content-center">
             <div class="col-lg12">
                 <h1>Devise <i class="fas fa-arrow-right"></i> Participants & paiement <i class="fas fa-arrow-right"></i> Confirmation</h1>
+                
             </div>
         </div>
        </div>
 
  </div>
 
-              
+<!-- recuperation des données -->
+
+
+
+
+<!-- end recuperation -->
                
 
   <!-- Start home-about Area -->
       <section class="destinations-area section-gap pb-5">
+        <form action="{{ url('paiement/info') }}" method="post">
+          @csrf
           <div class="container">
             <div class="row ">
                 <div class="col-lg-8 ">
@@ -102,72 +110,76 @@
                                   <div class="details">
                                     <h4 class="title-bor">Vos coordonnées</h4>
                                     <h6>Contact</h6>
-                                    <form>
+                                   
                                         <div class="form-row">
                                           <div class="form-group col-md-6">
                                             <label for="inputEmail4">Nom</label>
-                                            <input type="email" class="form-control" id="inputEmail4" placeholder="" value="{{Auth::user()->name}}">
+                                            <input type="text" class="form-control" id="inputEmail4" name="name" placeholder="" value="{{Auth::user()->name}}">
                                           </div>
                                           <div class="form-group col-md-6">
                                             <label for="inputPassword4">Prenom</label>
-                                            <input type="text" class="form-control" id="inputPassword4" placeholder=""  value="">
+                                            <input type="text" class="form-control" id="inputPassword4" name="prenom" placeholder=""  value="">
                                           </div>
                                           <div class="form-group col-md-6">
                                             <label for="inputEmail4">Telephone</label>
-                                            <input type="email" class="form-control" id="inputEmail4" placeholder="" value="">
+                                            <input type="text" class="form-control" id="inputEmail4" name="telephone" placeholder="" value="">
                                           </div>
                                           <div class="form-group col-md-6">
                                             <label for="inputPassword4">address mail</label>
-                                            <input type="text" class="form-control" id="inputPassword4" placeholder=""  value="{{Auth::user()->email}}">
+                                            <input type="text" class="form-control" id="inputPassword4" placeholder="" name="email" value="{{Auth::user()->email}}">
                                           </div>
                                         </div>
                                         <div class="form-group">
                                           <label for="inputAddress">Addresse</label>
-                                          <input type="text" class="form-control" id="inputAddress" placeholder="">
+                                          <input type="text" class="form-control" id="inputAddress" placeholder="" name="address">
                                         </div>
                                         
                                         <div class="form-row">
                                           <div class="form-group col-md-6">
                                             <label for="inputCity">Ville</label>
-                                            <input type="text" class="form-control" id="inputCity">
+                                            <input type="text" class="form-control" id="inputCity" name="Ville">
                                           </div>
                                           <div class="form-group col-md-4">
                                             <label for="inputState">pays</label>
-                                            <select id="inputState" class="form-control">
+                                            <select id="inputState" class="form-control" name="">
                                               <option selected>France</option>
                                               <option>...</option>
                                             </select>
                                           </div>
                                           <div class="form-group col-md-2">
                                             <label for="inputZip">code postal</label>
-                                            <input type="text" class="form-control" id="inputZip">
+                                            <input type="text" class="form-control" id="inputZip" name="code_postal">
                                           </div>
                                         </div>
                                         
                                        
-                                      </form>
+                                      
                                   </div>
                             </div>
                         </div>
+
+
+                        
                         <div class="col-lg-12 col-sm-12">
                             <div class="single-destinations">
                             <div class="details">
                                 <div class="welike">
                                     <span style="font-size: 0px;"></span>
                                     <h4 class="title-bor">Informations voyageurs </h4>
-                                    <form class="mt-5">
+                                    
                                         <div class="form-row">
                                           <div class="col">
                                             <select id="inputState" class="form-control">
                                                 <option selected>Titre</option>
-                                                <option>...</option>
+                                                <option>Mr</option>
+                                                <option>Madame</option>
                                               </select>
                                           </div>
                                           <div class="col">
-                                            <input type="text" class="form-control" placeholder="Last name">
+                                            <input type="text" class="form-control" name="Last_name" placeholder="Last name">
                                           </div>
                                           <div class="col">
-                                            <input type="text" class="form-control" placeholder="First name">
+                                            <input type="text" class="form-control" name="First_name" placeholder="First name">
                                           </div>
                                         </div>
                                         <hr>
@@ -175,17 +187,18 @@
                                             <div class="col">
                                                 <select id="inputState" class="form-control">
                                                     <option selected>Titre</option>
-                                                    <option>...</option>
+                                                    <option>Mr</option>
+                                                    <option>Madame</option>
                                                   </select>
                                             </div>
                                             <div class="col">
-                                              <input type="text" class="form-control" placeholder="Last name">
+                                              <input type="text" class="form-control" name="Last_name" placeholder="Last name">
                                             </div>
                                             <div class="col">
-                                                <input type="text" class="form-control" placeholder="First name">
+                                                <input type="text" class="form-control" name="First_name" placeholder="First name">
                                               </div>
                                           </div>
-                                      </form>
+                                      
                                 </div>
                             </div>
                             </div>
@@ -199,11 +212,11 @@
                                 <div class="welike">
                                     <span style="font-size: 0px;"></span>
                                     <h4 class="title-bor">Vos informations de paiement</h4>
-                                    <form class="mt-5">
+                                  
                                         <div class="form-row">
                                           <div class="col-md-12 mb-3">
                                             <label for="validationDefault01">Numéro de carte de crédit </label>
-                                            <input type="text" class="form-control" id="validationDefault01" placeholder="Numéro de carte de crédit " value="" required>
+                                            <input type="text" class="form-control" id="validationDefault01" name="Numéro_(carte" placeholder="Numéro de carte de crédit " value="" >
                                           </div>
                                          
                                          
@@ -211,25 +224,20 @@
                                         <div class="form-row">
                                           <div class="col-md-6 mb-3">
                                             <label for="validationDefault03">Nom et prénom</label>
-                                            <input type="text" class="form-control" id="validationDefault03" placeholder="Nom et prénom" required>
+                                            <input type="text" class="form-control" id="validationDefault03" name="full_name" placeholder="Nom et prénom" >
                                           </div>
                                           <div class="col-md-3 mb-3">
                                             <label for="validationDefault04">code de sécurité</label>
-                                            <input type="text" class="form-control" id="validationDefault04" placeholder="code de sécurité" required>
+                                            <input type="text" class="form-control" id="validationDefault04" name="code_securité" placeholder="code de sécurité" >
                                           </div>
                                           <div class="col-md-3 mb-3">
                                             <label for="validationDefault05">Date d'expiration  </label>
-                                            <input type="text" class="form-control" id="validationDefault05" placeholder="Date d'expiration " required>
+                                            <input type="text" class="form-control" id="validationDefault05" name="Date_d'expiration" placeholder="Date d'expiration " >
                                           </div>
                                         </div>
-                                        <div class="form-check mt-5">
-                                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                          <label class="form-check-label" for="flexCheckDefault">
-                                            Default checkbox
-                                          </label>
-                                        </div>
                                        
-                                      </form>   
+                                       
+                                   
                                 </div>
                             </div>
                             </div>
@@ -250,59 +258,55 @@
                             <div class="single-destinations">
                        
                                 <div class="details ">
-                                   <dir class="price text-center">
-                                    <h4>A partir de <span style="color: royalblue"><i class="fa fa-tag" aria-hidden="true"></i></span> </h4>
-                                    <ins>
-                                        
-                                        <span class="price-color"> 1036.96 € </span>
-                                      </ins> 
-                                   </dir>
-                                    
-
-
-                                    <div class="sale-time-price">
-                                        
-                                        <div class="sale-time-remaining">
-                                            
-                                            <i class="fa fa-calendar fa-2x" aria-hidden="true"></i>
-                                            <span class="">
-                                                <span class="time">Reste 11 h 48 m</span><br>
-                                                <span class="time-notice">Sous réserve de prolongation</span>
-                                            </span>
-                                            </div>
-                                            
-                                        </div>
+                                 
+                   
                                     <ul class="package-list">
+                                      <li class="d-flex justify-content-between align-items-center">
+                                        <span>Le prix initial</span>
+                                        <h6>{{Session::get('reservation')['prix']}} € </h6>
+                                        <input type="text" name="prix" value="{{Session::get('reservation')['prix']}}" hidden>
+                                    </li>
                                         <li class="d-flex justify-content-between align-items-center">
                                             <span>Nombre des places </span>
-                                            <h6>23 Personnes</h6>
+                                            <h6>{{Session::get('reservation')['nbr_perso']}} Personnes</h6>
+                                            <input type="text" name="nbr_perso" value="{{Session::get('reservation')['nbr_perso']}}" hidden>
                                         </li>
                                         <li class="d-flex justify-content-between align-items-center">
                                             <span>Date</span>
-                                            <h6>30/11/2021</h6>
+                                            <h6>{{Session::get('reservation')['date_depart']}}</h6>
+                                            <input type="text" name="date_depart" value="{{Session::get('reservation')['date_depart']}}" hidden>
                                         </li>
                                         <li class="d-flex justify-content-between align-items-center">
                                             <span>Airport</span>
-                                            <h6>Paris</h6>
+                                            <h6>{{Session::get('reservation')['airport']}}</h6>
+                                            <input type="text" name="airport" value="{{Session::get('reservation')['airport']}}" hidden>
                                             
                                         </li>
                                         <li class="d-flex justify-content-between align-items-center">
-                                            <span>Airport</span>
-                                            <h6>Paris</h6>
+                                            <span>nuits</span>
+                                            <h6>{{Session::get('reservation')['nuits']}} €</h6>
+                                            <input type="text" name="nuits" value="{{Session::get('reservation')['enfant']}}" hidden>
                                             
                                         </li>
                                         <li class="d-flex justify-content-between align-items-center">
-                                            <span>Airport</span>
-                                            <h6>Paris</h6>
+                                            <span>enfant</span>
+                                            <h6>{{Session::get('reservation')['enfant']}}</h6>
+                                            <input type="text" name="enfant" value="{{Session::get('reservation')['enfant']}}" hidden>
                                             
                                         </li>
                                         <li class="d-flex justify-content-between align-items-center">
-                                            <span>Airport</span>
-                                            <h6>Paris</h6>
+                                            <span>adulte</span>
+                                            <h6>{{Session::get('reservation')['adulte']}}</h6>
+                                            <input type="text" name="adult" value="{{Session::get('reservation')['adulte']}}" hidden>
                                             
                                         </li>
                                         <li class="d-flex justify-content-between align-items-center">
-                                           <button class="btn btn-danger btn-block">Paiement</button>
+                                          <span>Assurance de voyage  <h6 >(+ 10€ )</h6></span>
+                                              <input  class="form-check-input "  type="checkbox" value="10" name="assurance" >
+                                         
+                                      </li>
+                                        <li class="d-flex justify-content-between align-items-center">
+                                           <button class="btn btn-danger btn-block" type="submit"> {{Session::get('reservation')['prixx']}} € : Paiement</button>
                                             
                                         </li>
                                   
@@ -321,6 +325,7 @@
                 </div>
             </div>
           </div>
+        </form>
       </section>
 
 

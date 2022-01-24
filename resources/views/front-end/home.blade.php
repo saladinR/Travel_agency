@@ -15,7 +15,7 @@
     <meta charset="UTF-8">
     <!-- Site Title -->
     <title>VOYANEO</title>
-    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
         <!--
@@ -31,6 +31,10 @@
         <link rel="stylesheet" href="css/owl.carousel.css">				
         <link rel="stylesheet" href="css/main.css">
     </head>
+    <style>
+       
+}
+    </style>
     <body>	
         <!-- navbar -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top ">
@@ -72,79 +76,78 @@
               </div>
             </div>
           </nav>
-  
-        <!-- start banner Area -->
+        <!-- model code de parraonage -->
         <!-- Modal -->
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-share-alt-square"></i> Partager le Code de parrainage </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                </div>
-                <div class="modal-body par-body">
-                    <div class="container_par">
-                       
-                        <div class="copy-text">
-                            <input type="text" class="text" value="{{Auth::user()->cle_par}}" />
-                            <button><i class="fa fa-clone"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-               
-                </div>
-            </div>
-            </div>
-        </div>
-<!-- start banner Area -->
-         <!-- Modal -->
-         <form action = "client-show/{{Auth::user()->id}}" method="post" enctype="multipart/form-data">
-                   
-            {{ csrf_field() }}
-            <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title"><i class="fas fa-user-edit"></i> Mon compte</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
+                        <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-share-alt-square"></i> Partager le Code de parrainage </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                         </div>
-                
-                        @if(session('status'))
-                        <div class="alert alert-success">
-                          {{ session('status') }}
-                        </div> 
-                        @endif	
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label for="exampleFormControlInput1">Nom</label>
-                                <input type="text" class="form-control" name="name" value="{{Auth::user()->name}}" placeholder="Nom">
-                              </div>
-                              <div class="form-group">
-                                <label for="exampleFormControlInput1">Email</label>
-                                <input type="email" class="form-control" name="email"  value="{{Auth::user()->email}}" placeholder="Email">
-                              </div>
-                              <div class="form-group">
-                                <label for="exampleFormControlInput1">nouveau mot de passe</label>
-                                <input type="password" class="form-control" name="password"   value="" placeholder="password" >
-                              </div>
-                              
-                         
-
-                                <button type="submit" name="send" class="btn btn-warning  btn-block"><i class="fas fa-user-edit"></i> Modifier</button>
-                              
+                        <div class="modal-body par-body">
+                            <div class="container_par">
+                               
+                                <div class="copy-text">
+                                    <input type="text" class="text" value="{{Auth::user()->cle_par}}" />
+                                    <button><i class="fa fa-clone"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                       
                         </div>
                     </div>
+                    </div>
                 </div>
-            </div>
-        </form>
-<!-- End banner Area -->
-
+        <!-- start banner Area -->
+       <!-- Modal -->
+                <form action = "client-show/{{Auth::user()->id}}" method="post" enctype="multipart/form-data">
+                   
+                    {{ csrf_field() }}
+                    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title"><i class="fas fa-user-edit"></i> Mon compte</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                </div>
+                        
+                                @if(session('status'))
+                                <div class="alert alert-success">
+                                  {{ session('status') }}
+                                </div> 
+                                @endif	
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlInput1">Nom</label>
+                                        <input type="text" class="form-control" name="name" value="{{Auth::user()->name}}" placeholder="Nom">
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="exampleFormControlInput1">Email</label>
+                                        <input type="email" class="form-control" name="email"  value="{{Auth::user()->email}}" placeholder="Email">
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="exampleFormControlInput1">nouveau mot de passe</label>
+                                        <input type="password" class="form-control" name="password"   value="" placeholder="password" >
+                                      </div>
+                                      
+                                 
+        
+                                        <button type="submit" name="send" class="btn btn-warning  btn-block"><i class="fas fa-user-edit"></i> Modifier</button>
+                                      
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+        <!-- End banner Area -->
+       
         <!-- Start hot-deal Area -->
         <section class="hot-deal-area section-gap " >
             <div class="container">
@@ -154,7 +157,7 @@
                         @foreach ($offre as $item)
                         <div class="single-carusel">
                             <div class="thumb relative">
-                                <img class="img-fluid" src="data_image/{{ $item->filenames1 }}" alt="">
+                                <img class="img-fluid" src="data_app/image/{{ $item->filenames1 }}" alt="">
                             </div>
                             <div class="price-detials">
                                <div class="row">
@@ -168,7 +171,7 @@
                         <div class="single-carusel">
                             <div class="thumb relative">
                                 
-                                <img class="img-fluid" src="data_image/{{ $item->filenames2 }}" alt="" >
+                                <img class="img-fluid" src="data_app/image/{{ $item->filenames2 }}" alt="" >
                             </div>
                             <div class="price-detials">
                                 <div class="row">
@@ -181,7 +184,7 @@
                         <div class="single-carusel">
                             <div class="thumb relative">
                                 
-                                <img class="img-fluid" src="data_image/{{ $item->filenames3 }}" alt="">
+                                <img class="img-fluid" src="data_app/image/{{ $item->filenames3 }}" alt="">
                             </div>
                             <div class="price-detials">
                                 <div class="row">
@@ -194,7 +197,7 @@
                             <div class="single-carusel">
                                 <div class="thumb relative">
                                     
-                                    <img class="img-fluid" src="data_image/{{ $item->filenames4 }}" alt="">
+                                    <img class="img-fluid" src="data_app/image/{{ $item->filenames4 }}" alt="">
                                 </div>
                                 <div class="price-detials">
                                     <div class="row">
@@ -207,7 +210,7 @@
                                 <div class="single-carusel">
                                     <div class="thumb relative">
                                         
-                                        <img class="img-fluid" src="data_image/{{ $item->filenames5 }}" alt="">
+                                        <img class="img-fluid" src="data_app/image/{{ $item->filenames5 }}" alt="">
                                     </div>
                                     <div class="price-detials">
                                         <div class="row">
@@ -220,7 +223,7 @@
                                     <div class="single-carusel">
                                         <div class="thumb relative">
                                             
-                                            <img class="img-fluid" src="data_image/{{ $item->filenames6 }}" alt="">
+                                            <img class="img-fluid" src="data_app/image/{{ $item->filenames6 }}" alt="">
                                         </div>
                                         <div class="price-detials">
                                             <div class="row">
@@ -260,9 +263,9 @@
         </section>
         
         <!-- End hot-deal Area -->
-
+        
               
-               
+        
 
   <!-- Start home-about Area -->
       <section class="destinations-area section-gap pb-5">
@@ -310,6 +313,9 @@
                             </div>
                             </div>
                         </div>
+
+
+                       
                        
 
                         <!-- section video -->
@@ -375,17 +381,18 @@
                             <div class="single-destinations">
                        
                                 <div class="details ">
-                                   <dir class="price text-center">
+                                   <div class="price text-center">
                                     <h4>A partir de <span style="color: royalblue"><i class="fa fa-tag" aria-hidden="true"></i></span> </h4>
                                     <ins>
                                         
-                                        <span class="price-color"> {{ $offres->prix }} € </span>
+                                        <span class="price-color">  {{ $offres->prix }} € </span>
                                       </ins> 
-                                   </dir>
+                                    </div>
                                     
-
-
-                                    <div class="sale-time-price">
+                                    <form action="{{ url('paiement') }}" method="post">
+                                      @csrf
+                                      <input type="text" value="{{ $offres->prix }} " name="prix" hidden>
+                                      <div class="sale-time-price">
                                         
                                         <div class="sale-time-remaining">
                                             
@@ -397,52 +404,54 @@
                                             </div>
                                             
                                         </div>
-                                    <ul class="package-list">
-                                        <li class="d-flex justify-content-between align-items-center">
-                                            <span>Nombre des places </span>
-                                            <h6>{{ $offres->nbr_perso }} Personnes</h6>
-                                        </li>
-                                        <li class="d-flex justify-content-between align-items-center">
-                                            <span>Date</span>
-                                            <h6>{{ $offres->date_depart }}</h6>
-                                        </li>
-                                        <li class="d-flex justify-content-between align-items-center">
-                                            <span>Airport</span>
-                                            <h6>{{ $offres->airport }}</h6>
-                                            
-                                        </li>
-                                  
-                                        
+                                        <ul class="package-list">
+                                            <li class="d-flex justify-content-between align-items-center">
+                                                <span>Nombre des places </span>
+                                                <h6>{{ $offres->nbr_perso }} Personnes</h6>
+                                                <input type="text"   value="{{$offres->nbr_perso }}" name="nbr_perso" hidden>
+                                            </li>
+                                            <li class="d-flex justify-content-between align-items-center">
+                                                <span>Date</span>
+                                                <h6>{{ $offres->date_depart }}</h6>
+                                                <input type="text"   value="{{ $offres->date_depart }}" name="date_depart" hidden>
+                                            </li>
+                                            <li class="d-flex justify-content-between align-items-center" hidden>
+                                                <span>Airport</span>
+                                                <h6>{{ $offres->airport }}</h6>
+                                                <input type="text"   value="{{ $offres->airport }}" name="airport" hidden>
+                                                
+                                            </li>
+     
                                         <li class="d-flex justify-content-between align-items-center">
                                             <span>Econnomique </span>
-                                                <input id="stackedCheck1" class="form-check-input" onClick="checko()" type="checkbox" value="0" >
+                                                <input id="stackedCheck1" class="form-check-input" onClick="checko()" type="checkbox" value="0" name="eco" >
                                            
                                         </li>	
                                         <li class="d-flex justify-content-between align-items-center">
                                             <span>Business <h6 >(+ 50€ )</h6></span>
-                                                <input id="stackedCheck2" class="form-check-input " onClick="checko()" type="checkbox" value="50" >
+                                                <input id="stackedCheck2" class="form-check-input " onClick="checko()" type="checkbox" value="50" name="bus">
                                            
                                         </li>
                                         <li class="d-flex justify-content-between align-items-center">
                                             <select class="browser-default custom-select">
                                                 <option selected="">Ville de départ</option>
-                                                <option value="1">Paris</option>
-                                                <option value="2">Bordeaux</option>
-                                                <option value="3">Lille</option>
-                                                <option value="3">Nante</option>
+                                                <option value="1"  name="paris">Paris</option>
+                                                <option value="2"  name="Bordeaux">Bordeaux</option>
+                                                <option value="3"  name="Lille">Lille</option>
+                                                <option value="3"  name="Nante">Nante</option>
                                               </select> 
                                             
                                         </li>
                                         <li class="d-flex justify-content-between align-items-center">
                                             <span>Date de départ: </span> 
 
-                                            <input type="date" value="2021-11-18" min="2005-01-01" max="2019-01-01">
+                                            <input type="date" value="2021-11-18" min="2005-01-01" max="2034-01-01" name="date_depart">
                                         </li>
                                         
                                             
                                             <li class="d-flex justify-content-between align-items-center" id="night_price">
                                                 <span>Nombre des nuits</span>
-                                                <select class="browser-default custom-select" id="list" >
+                                                <select class="browser-default custom-select" id="list" name="nuits">
                                                     
                                                     <option value="523.96 " selected>3 nuits (523.96 €)</option>
                                                     <option value="609.96">4 nuits (609.96 €)</option>
@@ -460,55 +469,55 @@
                                                   </select> 
                                                 
                                             </li>
-                                            {{-- <div class="num-block skin-2">
-                                                <div class="num-in">
-                                                  <span class="minus dis"></span>
-                                                  <input type="text" class="in-num" id="nuit" value="1" readonly="">
-                                                  <span class="plus"></span>
-                                                </div>
-                                              </div> --}}
-                                            {{-- <input type="date" value="2021-11-18" min="2005-01-01" max="2019-01-01"> --}}
-                                                
+
+                                            <li class="d-flex justify-content-between align-items-center">
                                             
+                                                <h5>Enfants <h6 style="color:#96969b ">(3-11 ans)</h6></h5> 
+                                                <div class="num-block skin-2">
+                                                    <div class="num-in">
+                                                      <span class="minus dis" onchange="show()"></span>
+                                                      <input type="text" class="in-num"  value="1" id="enfant" readonly="" name="enfant">
+                                                      <span class="plus" ></span>
+                                                    </div>
+                                                  </div>
+                                                
+                                                
+                                            </li>	
+                                            <li class="d-flex justify-content-between align-items-center">
+                                                
+                                                <h5>Adultes</h5> 
+                                                <div class="num-block skin-2">
+                                                    <div class="num-in">
+                                                      <span class="minus dis"></span>
+                                                      <input type="text" class="in-num"  value="1" id="adult" readonly="" name="adulte">
+                                                      <span class="plus"></span>
+                                                    </div>
+                                                  </div> 
+                                                
+                                                
+                                            </li>	
+                                            <li class="text-center" >
+                                                <button type="button" class="btn btn_valider btn-lg" onclick="calcul()">Calculer le prix final</button>
+                                            </li>
+    
+                                            <li  class="text-center" id="prix_show" style="display: none">
+                                            <h3>prix :</h3>
+                                            <h1 id="prixxx"></h1>
+                                            <input type="text" name="prixx" id="prixx" hidden>
+                                            
+                                              <button class="btn btn-success mt-3" type="submit">valider ma commande <i class="fas fa-arrow-right"></i> </button>
+                                                
+                                                
+                                            </li>
+                                            
+                                            
+
+                                    </form>
+
+                                    
                                             
                                    
-                                        <li class="d-flex justify-content-between align-items-center">
-                                            
-                                            <h5>Enfants <h6 style="color:#96969b ">(3-11 ans)</h6></h5> 
-                                            <div class="num-block skin-2">
-                                                <div class="num-in">
-                                                  <span class="minus dis" onchange="show()"></span>
-                                                  <input type="text" class="in-num"  value="1" id="enfant" readonly="">
-                                                  <span class="plus" ></span>
-                                                </div>
-                                              </div>
-                                            
-                                            
-                                        </li>	
-                                        <li class="d-flex justify-content-between align-items-center">
-                                            
-                                            <h5>Adultes</h5> 
-                                            <div class="num-block skin-2">
-                                                <div class="num-in">
-                                                  <span class="minus dis"></span>
-                                                  <input type="text" class="in-num"  value="1" id="adult" readonly="">
-                                                  <span class="plus"></span>
-                                                </div>
-                                              </div> 
-                                            
-                                            
-                                        </li>	
-                                        <li class="text-center" >
-                                            <button type="button" class="btn btn_valider btn-lg" onclick="calcul()">Calculer le prix final</button>
-                                        </li>
-
-                                        <li  class="text-center" id="prix_show" style="display: none">
-                                        <h3>prix :</h3>
-                                         <h1 id="prixx" style="color:#09C6AB"> </h1>
-                                          <a class="btn btn-success mt-3" href="{{ url('/paiement') }}">valider ma commande <i class="fas fa-arrow-right"></i> </a>
-                                            
-                                            
-                                        </li>			
+                                       
                                         
                                             
         
@@ -806,7 +815,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
                  
                  document.getElementById("prix_show").style.display = "";
-                 document.getElementById('prixx').innerHTML = calc_final +" "+"€";
+                 document.getElementById('prixxx').innerHTML = calc_final +" "+"€";
+                 document.getElementById('prixx').value = calc_final;
                
             }
         
@@ -815,19 +825,19 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
         </script>
         <script>
-            let copyText = document.querySelector(".copy-text");
-           
-               copyText.querySelector("button").addEventListener("click", function () {
-               let input = copyText.querySelector("input.text");
-               input.select();
-               document.execCommand("copy");
-               copyText.classList.add("active");
-               window.getSelection().removeAllRanges();
-               setTimeout(function () {
-                   copyText.classList.remove("active");
-               }, 2500);
-           });
-           </script>
+         let copyText = document.querySelector(".copy-text");
+        
+            copyText.querySelector("button").addEventListener("click", function () {
+            let input = copyText.querySelector("input.text");
+            input.select();
+            document.execCommand("copy");
+            copyText.classList.add("active");
+            window.getSelection().removeAllRanges();
+            setTimeout(function () {
+                copyText.classList.remove("active");
+            }, 2500);
+        });
+        </script>
 
     </body>
 </html>
